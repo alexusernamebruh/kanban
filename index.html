@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Kanban Board</title>
+</head>
+<body>
+    <div class="container">
+        <div class="kanban-heading">
+            <strong class="kanban-heading-text">Kanban Board</strong>
+        </div>
+        <div class="kanban-board">
+            <div id="todo">To Do</div>
+            <div id="inprogress">In Progress</div>
+            <div id="done">Done</div>
+            <div class="kanban-block" id="todo">
+                <strong>To Do</strong>
+                <div class="task-button-block">
+                    <button id="task-button">Create new task</span>
+                </div>
+                <div class="task" id="task1">
+                    <span>Task 1</span>
+                </div>
+                <div class="task" id="task2">
+                    <span>Task 2</span>
+                </div>
+                <div class="task" id="task3">
+                    <span>Task 3</span>
+                </div>
+                <div class="task" id="task4">
+                    <span>Task 4</span>
+                </div>
+                <div class="task" id="task5">
+                    <span>Task 5</span>
+                </div>
+                <div class="task" id="task6">
+                    <span>Task 6e</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .container {
+  width: 70%;
+  min-width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.kanban-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.kanban-heading-text {
+  font-size: 1.8rem;
+  background-color: rgb(15, 13, 13);
+  padding: 0.8rem 1.7rem;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+.kanban-board {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: sans-serif;
+}
+
+.kanban-block {
+  padding: 0.6rem;
+  width: 30.5%;
+  min-width: 14rem;
+  min-height: 4.5rem;
+  border-radius: 0.3rem;
+}
+
+#todo {
+  background-color: #c6f7fe;
+}
+
+#inprogress {
+  background-color: #fff8e9;
+}
+
+#done {
+  background-color: #b4ffb4;
+}
+body {
+  background-color: black;
+}
+.task {
+  background-color: white;
+  margin: 0.2rem 0rem 0.3rem 0rem;
+  border: 0.1rem solid black;
+  border-radius: 0.2rem;
+  padding: 0.5rem 0.2rem 0.5rem 2rem;
+}
+
+#task-button {
+  margin: 0.2rem 0rem 0.1rem 0rem;
+  background-color: white;
+  border-radius: 0.2rem;
+  width: 100%;
+  border: 0.25rem solid black;
+  padding: 0.5rem 2.7rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+}
+
+    </style>
+    <script>
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+    <div class="container">
+        <div class="kanban-heading">
+            <strong class="kanban-heading-text">Kanban Board</strong>
+        </div>
+        <div class="kanban-board">
+            <div class="kanban-block" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <strong>To Do</strong>
+                <div class="task-button-block">
+                    <button id="task-button">Create new task</span>
+                </div>
+                <div class="task" id="task1" draggable="true" ondragstart="drag(event)">
+                    <span>Task 1</span>
+                </div>
+                <div class="task" id="task2" draggable="true" ondragstart="drag(event)">
+                    <span>Task 2</span>
+                </div>
+                <div class="task" id="task3" draggable="true" ondragstart="drag(event)">
+                    <span>Task 3</span>
+                </div>
+                <div class="task" id="task4" draggable="true" ondragstart="drag(event)">
+                    <span>Task 4</span>
+                </div>
+                <div class="task" id="task5" draggable="true" ondragstart="drag(event)">
+                    <span>Task 5</span>
+                </div>
+                <div class="task" id="task6" draggable="true" ondragstart="drag(event)">
+                    <span>Task 6</span>
+                </div>
+            </div>
+            <div class="kanban-block" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <strong>In Progress</strong>
+            </div>
+            <div class="kanban-block" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <strong>Done</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
